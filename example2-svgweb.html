@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>HTML</title>
+		<meta name="description" content="" />
+		<meta name="author" content="zoltan" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		
+		<link rel="stylesheet" type="text/css" href="css/example2.css" />
+		
+		<script src="js/svgweb/src/svg.js"  data-path="js/svgweb/src"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/example2-animation-svgweb.js"></script>
+		  <!--[if lt IE 9 ]>
+		   <link type="text/css" href="css/vml.css" rel="stylesheet" />
+		   
+		  <![endif]-->
+		  
+  
+	</head>
+
+	<body>
+		
+		<div id="shapeContainer">
+			<script type="image/svg+xml">
+				<svg id="myShape" xmlns="http://www.w3.org/2000/svg"
+				     xmlns:xlink="http://www.w3.org/1999/xlink"
+				    viewBox="0,0,1024,481" 
+				     >
+				  <defs>
+				  	
+					  <!-- 
+					  		Note: the d attribute is the same as the VML shape's path attribute except:
+					  		
+					  		1) SVG can take float co-ordinates.  VML cannot.  To be consistant, I round.
+					  		2) all the numbers are separated by commas, not just the coordinate pairs.
+					  		3) the 'z' at the end in svg is an 'xe' in VML
+					  		4) it's better to use a group of straight lines that a group of curves, since
+					  		   VML doesn't do letter spacing consistantly with a lot of curves.
+					  -->
+					  
+					  <path id="path1"
+					        fill="none" stroke="black" stroke-width="1"
+					        d="M 1, 281 C 479, 74, 502, 65, 779, 200
+					        	834, 236, 915, 343, 1023, 468" >
+					  </path>
+				  </defs>
+				  <text id="myText" >
+		    		<textPath  xlink:href="#path1" startOffset="0%"><tspan dy="0.3em" xml:space="preserve">Type Doesn't Have To Be Flat!</tspan></textPath>
+		          </text>
+		      
+				</svg>
+			</script>
+			
+		</div>
+		<img id="rollerCoasterImage" src="images/roller-coaster.jpg" />
+		
+		<div id="hoverControl">Mouse over or touch this block to see this path animate</div>
+	</body>
+</html>

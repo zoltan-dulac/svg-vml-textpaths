@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<link type="text/css" rel="stylesheet" href="css/basicForm.css" />
+		
+		<!-- This style sheet can be used as a basis to create validation-state styles -->
+		<link type="text/css" rel="stylesheet" href="css/validity.css" />
+		
+		<script type="text/javascript" src="../../shared/js/modernizr.com/Modernizr-2.5.3.forms.js">
+		</script>
+		
+		<!-- Needed for Validation --> 
+		<script type="text/javascript" src="../../shared/js/html5Forms.js" data-webforms2-support="validation">
+		</script>
+		
+		
+		
+		<title>HTML5 placeholder Attribute Test</title>
+		
+		
+		
+	</head>
+	<body id="myExample">
+		<div id="exampleBlurb">
+		<p>
+				This is an example of an HTML5 form where the form fields show the validity state as the user types in each field.
+					<a href="http://www.useragentman.com/blog/?p=4472">Back to User Agent Man HTML5 Forms article </a>
+			</p>
+		</div>
+		
+		
+		<form action="http://www.useragentman.com/testForm.php">
+			<fieldset>
+				<legend>Personal Information</legend>
+		
+				<p>Form fields labelled <img src="images/asterisk_orange.png" alt="*"/> are mandatory.</p>
+				
+			<table class="formTable">
+				<tr>
+					<th>Full Name :</th>
+					<td><input type="text" name="fullName" value="" required="required" placeholder="Required information" 
+						data-errormessage="Yo, Bro! You forgot to fill out this field!"
+						/>
+					<div class="description"></div>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>Company Name :</th>
+					<td><input type="text" name="companyName" required="required" value="" 
+						data-errormessage="Don't forget this field either, Holmes!"
+						
+						 />
+					<div class="description"></div>
+					</td>
+				</tr>
+				<tr>
+					<th>Zip Code</th>
+					<td><input type="text" name="postalCode" value="" required="required" placeholder="e.g. 90210"
+						pattern="(\d{5}([\-]\d{4})?)" data-errormessage="This must be a valid zip code."
+					/>
+					
+					
+					
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Submit Information"/></td>
+				</tr>
+			</table>
+			</fieldset>
+		</form>
+	</body>
+</html>

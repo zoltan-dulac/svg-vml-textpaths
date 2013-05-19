@@ -1,0 +1,19 @@
+v\:*{behavior:url(#default#VML);position:absolute}
+
+v\:group, v\:shape, v\:arc {
+	POSITION: absolute; 
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+v\:group v\:shape {
+	POSITION: absolute; 
+	WIDTH: 100%; 
+	HEIGHT: 100%; 
+	TOP: 0px; 
+	LEFT: 0px;
+	
+}
+

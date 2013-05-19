@@ -1,0 +1,174 @@
+@import "reset.css";
+@import "../../../shared/fonts/GraublauSansWeb/stylesheet.css";
+@import "../../../shared/fonts/Droid-Sans/stylesheet.css";
+@import "../../../shared/fonts/CPMono/stylesheet.css";
+
+body {
+	font-family: "DroidSansRegular", "Arial", "Helvetica", sans-serif;
+	
+}
+
+em {
+    font-family: "Arial", "Helvetica", sans-serif;
+}
+
+#myShape {
+	width: 1024px;
+	height: 1024px;
+}
+
+#myShape, img, #info {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#myShape {
+	z-index: 1;
+}
+
+img {
+	z-index: 0;
+}
+
+#info {
+	color: #cccccc;
+	text-shadow: 1px 1px 0px black;
+	z-index: 3;
+	padding-left: 10px;
+}
+
+#info, #info input {
+	font-size: 0.8em;
+	
+}
+
+#path {
+	margin-top: 10px;
+}
+
+#info.invisible, #instructions.invisible {
+	display: none;
+}
+
+.controlPoint, .endPoint {
+	cursor: move;
+	
+}
+
+.controlPoint {
+	stroke-width: 2;
+	fill: black;
+	
+}
+#curve {
+	z-index: 0;
+}
+
+.vml .endPoint,
+.vml .controlPoint {
+	margin-left: -3px; 
+	margin-top: -3px;
+	z-index: 6;
+	width: 6px; 
+	height: 6px;
+}
+
+.hidden {
+	display: none;
+}
+
+#instructions {
+	border: dashed 3px #FF8C00;
+	position: absolute;
+	font-size: 15px;
+	left: 610px;
+	top: 10px;
+	padding: 10px;
+	line-height: 1.3em;
+	z-index: 3;
+	margin-right: 10px;
+	background: white;
+}
+
+#instructions h1 {
+	line-height: 1.1em;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 10px;
+	font-family: "GraublauWeb-Bold", "Arial", "Helvetica", sans-serif;
+}
+
+#instructions p, #instructions blockquote {
+	margin-bottom: 10px;
+}
+
+blockquote, code {
+	font-size: 0.9em;
+	font-family: 'CPMono_v07Plain', 'Consolas', 'Courier New', 'Courier', monospace;
+}
+
+blockquote strong, code strong {
+	font-size: 0.9em;
+	font-family: 'CPMono_v07Bold', 'Consolas', 'Courier New', 'Courier', monospace;
+}
+
+blockquote {
+	margin-left: 20px;
+}
+
+#instructions ul {
+	margin-left: 10px;
+}
+
+#instructions li {
+	margin-left: 10px;
+	list-style-type: square;
+	margin-bottom: 5px;
+}
+
+em {
+	font-style: italic;
+}
+
+img {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+#copy-button {
+	font-size: 10px;
+	color: #cccccc;
+	text-shadow: 1px 1px 0px black;
+}
+
+#pathInput {
+	width: 300px;
+	margin-bottom: 10px;
+}
+
+label {
+	display: inline-block;
+	width: 40px;
+	padding-right: 20px;
+	
+}
+
+footer {
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+	background: black;
+	color: white;
+	text-align: center;
+	padding: 5px;
+	display: none;
+}
+
+footer.visible {
+	display: block;
+}

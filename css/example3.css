@@ -1,0 +1,101 @@
+@import "reset.css";
+@import "../fonts/LoungeBait/stylesheet.css";
+
+h1#outside {
+	position: absolute;
+	top: 100px;
+	left: 10px;
+	z-index: 30;
+}
+
+
+
+#headerText {
+	fill: white; 
+	font-family: "LoungeBait";
+	
+	text-anchor: middle;
+	/* for text spacing in VML */
+	/* v-text-spacing:3;v-text-spacing-mode:tracking; */
+	v-text-align: left;
+	
+	position: relative;
+	
+	top: 10px;
+	
+	font-size: 119px;
+	
+	
+	-ms-transform: translateY(-20px);
+	-webkit-transform: translateY(-20px);
+	transform: translateY(-20px);
+}
+
+.vml #headerText {
+	font-size: 65px;
+	font-family: "Times New Roman";
+}
+
+#leftGlassText, #rightGlassText, #bottomGlassText {
+	fill: white; 
+	font-size: 17px; 
+	
+	/* VML will not accept @font-face fonts (!!!) */
+	font-family: "Arial", sans-serif;
+	
+	
+	/* for text spacing in VML */
+	/* v-text-spacing:3;v-text-spacing-mode:tracking; */
+	v-text-align: center;
+
+	
+
+	text-anchor: middle;
+	
+	/* VML */
+	v-text-spacing:1.11; 
+	v-text-spacing-mode:tracking;
+	v-text-kern: True;
+}
+
+#leftGlassText tspan, #rightGlassText tspan, #bottomGlassText tspan {
+	/* This doesn't work in Firefox currently */
+	
+}
+
+
+/* This makes the text go through the middle of the path like VML does. */
+svg #headerText tspan {
+	dominant-baseline: middle;
+	alignment-baseline: middle;
+	/* baseline-shift: -30%; */ 
+}
+
+svg {
+	
+  display: block;
+}
+
+#myShape, #shapeContainer {
+	position: absolute;
+	z-index: 10;
+	width: 597px;
+	height: 960px;
+ 
+  background: url('../images/transparent.gif') ;
+  overflow: hidden;
+  
+}
+
+
+#myShape:hover {
+
+}
+
+
+#rollerCoasterImage {
+    left: 0px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}

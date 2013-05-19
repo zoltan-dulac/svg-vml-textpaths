@@ -1,0 +1,104 @@
+/* 
+ * This rule is for the root of the SVG and VML 
+ * (i.e. the whole shape)
+ */
+#myShape {
+  position: relative;
+  z-index: 10;
+  
+  width: 407px;
+  height: 407px;
+  cursor: pointer;
+  
+  /* SVG */
+  /*
+   * Webkit is the only browser that makes the transform origin 0 0 (WHY?!?!).
+   * We also can't use 50% 50%, because for SVG Webkit doesn't understand that either (WHY!??!)
+   */
+  -webkit-transform-origin: 203.5px 203.5px;
+  
+  -o-transform: rotate(0deg);
+  -webkit-transform: translateZ(0) rotate(0deg);
+  transform: translateZ(0) rotate(0deg);
+  
+  /* We animate on hover for browsers that do CSS transitions */
+  -o-transition: -o-transform 1s ease-out;
+  -webkit-transition: -webkit-transform 1s ease-out;
+  transition: transform 1s ease-out;
+  
+  
+  /* 
+   * VML: a rotation in VML is surprisingly simple, and
+   * doesn't need the horrible Matrix filter notation (yay!) 
+   */
+  rotation: 0;
+  
+  /* 
+   * This is needed by the VML in IE < 8 in order to grab
+   * the mouseover events that do the animation in JavaScript
+   */
+  background: url('../images/transparent.gif');
+}
+
+/*
+ * This rule is to style the text (i.e. the <text> node in SVG
+ * and the <v:shape> node in VML).
+ */
+#myText {
+
+  font-size: 50px;
+  
+  
+  /* SVG only.  For VML, the fill happens in the <v:shape> tag. */
+  fill: black;
+  
+  
+  /* Note: VML will not accept @font-face fonts (!!!) */
+  font-family: "Georgia", "Times New Roman", sans-serif;
+  font-style: italic;
+}
+
+/* 
+ * SVG: This allows the text to go through the path like VML
+ * does.  Without it, the text will sit on top of the path.
+ * I believe the sitting-on-top-of-the-path way makes more
+ * sense, but I can't seem to replicate that in VML.  :-(
+ */
+svg #myText tspan {
+  dominant-baseline: middle;
+}
+
+/* 
+ * Opera doesn't understand dominant-baseline right now, so 
+ * we use baseline-shift instead.  I would use baseline-shift
+ * everywhere, but Firefox doesn't understand it.
+ */
+noindex:-o-prefocus, svg #myText tspan {
+  baseline-shift: -0.3em;
+}
+
+
+/*
+ * On hover, we want the shape to do an animation.
+ */
+#myShape:hover {
+  -o-transform: rotate(360deg);
+  -webkit-transform: translateZ(0) rotate(360deg);
+  transform: translateZ(0) rotate(360deg);
+  
+  /* 
+   * You would think this would work, but it doesn't
+   * (I leave it here for to call this fact out).
+   * Seems like we can't rotate in VML on hover, so we
+   * do this with JavaScript instead via the mouseover
+   * event.
+   */
+  rotation: 45;
+}
+
+#cookie {
+  left: -4px;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}

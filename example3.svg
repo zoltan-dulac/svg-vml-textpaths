@@ -1,0 +1,170 @@
+<svg id="myShape" xmlns="http://www.w3.org/2000/svg"
+			     xmlns:xlink="http://www.w3.org/1999/xlink"
+			    viewBox="0,0,597,960" 
+			     >
+			     <style type="text/css"><![CDATA[
+     @import "css/reset.css";
+@import "fonts/LoungeBait/stylesheet.css";
+
+h1#outside {
+	position: absolute;
+	top: 100px;
+	left: 10px;
+	z-index: 30;
+}
+
+
+
+#headerText {
+	fill: white; 
+	font-family: "LoungeBait";
+	
+	
+	/* for text spacing in VML */
+	/* v-text-spacing:3;v-text-spacing-mode:tracking; */
+	v-text-align: left;
+	
+	position: relative;
+	
+	top: 10px;
+	
+	font-size: 119px;
+	
+	-webkit-transform: translateY(-20px);
+	transform: translateY(-20px);
+}
+
+.vml #headerText {
+	font-size: 65px;
+	font-family: "Times New Roman";
+}
+
+#rightGlassText {
+	fill: white; 
+	font-size: 17px; 
+	
+	/* VML will not accept @font-face fonts (!!!) */
+	font-family: "Arial", sans-serif;
+	
+	
+	/* for text spacing in VML */
+	/* v-text-spacing:3;v-text-spacing-mode:tracking; */
+	v-text-align: center;
+
+	/* This doesn't work in Firefox currently 
+	letter-spacing: 0.11em;*/
+
+	text-anchor: middle;
+	
+	/* VML */
+	v-text-spacing:1.11; 
+	v-text-spacing-mode:tracking;
+	v-text-kern: True;
+}
+
+
+/* This makes the text go through the middle of the path like VML does. */
+svg #headerText tspan {
+	dominant-baseline: middle;
+	
+	/* baseline-shift: -30%; */ 
+}
+
+svg {
+	
+  display: block;
+}
+
+#myShape, #shapeContainer {
+	position: absolute;
+	z-index: 10;
+	width: 597px;
+	height: 960px;
+ 
+  background: url('../images/transparent.gif') ;
+  overflow: hidden;
+  
+}
+
+
+#myShape:hover {
+
+}
+
+
+#rollerCoasterImage {
+    left: 0px;
+    position: absolute;
+    top: 0;
+    z-index: 1;
+}
+
+  ]]></style>
+			  <defs>
+			  	
+				  <!-- 
+				  		Note: the d attribute is the same as the VML shape's path attribute except:
+				  		
+				  		1) SVG can take float co-ordinates.  VML cannot.  To be consistant, I round.
+				  		2) all the numbers are separated by commas, not just the coordinate pairs.
+				  		3) the 'z' at the end in svg is an 'xe' in VML
+				  		4) it's better to use a group of straight lines that a group of curves, since
+				  		   VML doesn't do letter spacing consistantly with a lot of curves.
+				  -->
+				  <filter id="drop-shadow">
+						<feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blurred"/>
+						<feOffset in="blurred" dx="0" dy="0" result="final_blur"/>
+						<feMerge>
+							<feMergeNode in="final_blur"/>
+							<feMergeNode in="SourceGraphic"/>
+						</feMerge>
+					</filter>
+				  <path id="headerPath"
+				        fill="none" stroke="white" stroke-width="1"
+				        d="M 60,131
+								L 160, 122,
+								  223, 120,
+								  313, 122,
+								  383, 125,
+								  451, 132,
+								  502, 140" >
+				  </path>
+				  
+				   <path id="lefttGlassPath"
+				        fill="none" stroke="white" stroke-width="1"
+				        d="M 22, 183
+								L 323, 518,
+								  326, 492,
+								  337, 473,
+								  526, 194" >
+				  </path>
+				  
+				  <path id="rightGlassPath"
+				        fill="none" stroke="white" stroke-width="1"
+				        d="M 323,717
+								L 323, 518,
+								  326, 492,
+								  337, 473,
+								  526, 194" >
+				  </path>
+				  
+				  <path id="bottomGlassPath"
+				        fill="none" stroke="white" stroke-width="1"
+				        d="M 148, 835
+								C 214, 886, 339, 886, 395, 825" >
+				  </path>
+			  </defs>
+			  <text id="headerText"  >
+	    		<textPath  xlink:href="#headerPath" > <tspan xml:space="preserve">A Perfect Martini</tspan></textPath>
+	          </text>
+	          <text id="rightGlassText" >
+	    		<textPath  xlink:href="#rightGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > <tspan >
+	    			A hint of dry vermouth, two shots of gin and stirred, not shaken.  
+	    			
+	    		</tspan></textPath>
+	    		
+	    		<textPath  xlink:href="#bottomGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > 
+	    			<tspan >Garnished with a blue cheese olive.</tspan></textPath>
+	          </text>
+	      
+			</svg>
