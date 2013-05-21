@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>HTML</title>
+		<meta name="description" content="" />
+		<meta name="author" content="zoltan" />
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		
+		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="http://www.useragentman.com/shared/css/useragentmanExample.css" />
+		<link rel="stylesheet" type="text/css" href="css/example1-dy-test.css" />
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script src="js/example1-dy.js"></script>
+		  <!--[if lte IE 9 ]>
+		   <link type="text/css" href="css/vml.css" rel="stylesheet" />
+		   <script src="js/example1-ie-animation.js"></script>
+		  <![endif]-->
+		  
+  
+	</head>
+
+	<body>
+	  <div id="exampleBlurb">
+      <p>
+        This is the same as my other demo for cross-browser textpaths, except it shown what happens when 
+        the <code>dy="0.3em"</code> is taken away from the <code>tspan</code> node.
+        
+        <a href="http://www.useragentman.com/blog/?p=6053">Back to User Agent Man article</a>
+      </p>
+    </div>
+    <div id="exampleContent">
+	    <img id="cookie" src="images/cookie.jpg" /> 
+		
+			<!--[if IE 9 | !IE]><!-->
+			<svg id="myShape" xmlns="http://www.w3.org/2000/svg"
+			     xmlns:xlink="http://www.w3.org/1999/xlink"
+			     
+			     >
+			  <defs>
+			  	
+				  <!-- 
+				  		Note: the d attribute is the same as the VML shape's path attribute except:
+				  		
+				  		1) SVG can take float co-ordinates.  VML cannot.
+				  		2) all the numbers are separated by commas, not just the coordinate pairs.
+				  		3) the 'z' at the end in svg is an 'xe' in VML
+				  -->
+				  
+				  <path id="path1" 
+				        d="M 212,65
+				           C 276,81 292,91 305,103 
+				             361,155 363,245 311,302
+				             300,314 286,324 271,332
+				             248,343 227,347 202,347 
+				             190,346 174,343 163,339" >
+				  </path>
+			  </defs>
+			  <text id="myText">
+	    		<textPath  xlink:href="#path1">
+	    			<tspan dy="0.3em">C is for Cookie, That's Good Enough For Me!</tspan>
+	    		</textPath>
+	      </text>
+	      
+	      <path id="myPath" d="M 212,65
+                   C 276,81 292,91 305,103 
+                     361,155 363,245 311,302
+                     300,314 286,324 271,332
+                     248,343 227,347 202,347 
+                     190,346 174,343 163,339" />
+	      
+			</svg>
+			<!--<![endif]-->
+			
+			<!--[if lt IE 9 ]>
+				<?import namespace="v" urn="urn:schemas-microsoft-com:vml" implementation="#default#VML" declareNamespace />	
+					<v:group id="myShape" >
+						<v:shape id="path0"
+                allowoverlap="true" 
+                coordsize="407,407" 
+                filled="f" strokecolor="red" strokeweight="2px" stroked="t"  
+                path="M 212,65
+                   C 276,81 292,91 305,103 
+                     361,155 363,245 311,302
+                     300,314 286,324 271,332
+                     248,343 227,347 202,347 
+                     190,346 174,343 163,339">
+              <v:path id="myPath" textpathok="f" ></v:path>
+              
+              
+            </v:shape>
+						
+						
+						<v:shape id="path1"
+								allowoverlap="true" 
+								coordsize="407,407" 
+								filled="t" fillcolor="black" stroked="f"  
+								path="M 212,65
+				           C 276,81 292,91 305,103 
+				             361,155 363,245 311,302
+				             300,314 286,324 271,332
+				             248,343 227,347 202,347 
+				             190,346 174,343 163,339">
+							<v:path id="myPath" textpathok="t" ></v:path>
+							<v:textpath id="myText" on ="t" string="C is for Cookie, That's Good Enough For Me!"></v:textpath>
+						
+							
+						</v:shape>
+					</v:group>
+				
+			<![endif]-->
+		
+		  <form>
+		    <label for="showDy"><input type="checkbox" id="showDy">Set the tspan's dy="0.3em"</label>
+		    <p>Note: VML browsers cannot change where their text baseline is.  The path always goes through the middle of text.</p>
+		  </form>
+		</div>  
+	</body>
+</html>
