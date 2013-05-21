@@ -1,3 +1,5 @@
+/* This style-sheet acts like a CSS reset for VML */
+
 v\:*{behavior:url(#default#VML);position:absolute}
 
 v\:group, v\:shape, v\:arc {
