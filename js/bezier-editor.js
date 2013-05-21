@@ -46,7 +46,11 @@ var bezierEditor = new function () {
 		$imageURL,
 		$myImg,
 		clip,
-		qs;
+		qs,
+		tagRe = /<\/?[^>]+>/gi,
+		delRe = /<del>[^<]*<\/del>/gi,
+		spaceRe = /\s+/g;   // used by removeHTMLTags();
+              
 	
 	me.init = function () {
 		
@@ -67,6 +71,8 @@ var bezierEditor = new function () {
 		$footer = $('footer');
 		
 		useHashParams();
+		
+		
 		
 		$pts.bind('mousedown', mouseDownEvent);
 		
@@ -123,6 +129,11 @@ var bezierEditor = new function () {
 		
 		$(window).bind('hashchange', useHashParams)
 		
+	}
+	
+	function dragStopEvent(e) {
+	  e.preventDefault();
+	  return false;
 	}
 	
 	function useHashParams() {
@@ -255,7 +266,7 @@ var bezierEditor = new function () {
 			}
 		}
 		
-		$footer.html(d);
+		updateFooter(d, false);
 		
 	}
 	
@@ -403,51 +414,35 @@ var bezierEditor = new function () {
 			
 		}
 		
-		$footer.html(d);
+		updateFooter(d, false);
 		
 		
       }
       
-      function imageLoadEvent($images) {
-      	var img = $images[0];
-      	$('[viewBox]').each(function(i, el){
-      		el.setAttribute('viewbox', '0,0,1024,1024');
-      	});
-      	
-      	
-      	$('#myShape, #curve').each(function(i, el) {
-      		
-      		el.coordsize = '1024, 1024';
-      	})
-      }
+      
 
-	/**
-	 * Get all properties and methods in any javascript object and place them inside a 
-	 * string.  Useful for debugging.
-	 * 
-	 * @param {Object} obj - a javascript object.
-	 * @param {Object} objName - used to display an object name before properties and methods
-	 * 		in the string.  Optional.
-	 * @return {String} - a string containing the properties of the object
-	 */
-	me.getProperties = function (obj, objName)
-	{
-		var result = ""
-		
-		if (!obj) {
-			return result;
-		}
-		
-		for (var i in obj)
-		{
-			try {
-				result += objName + "." + i.toString() + " = " + obj[i] + ", ";
-			} catch (ex) {
-				// nothing
-			}
-		}
-		return result
-	}
+  function updateFooter(d, showDiff) {
+    var originalPath = removeHTMLTags($footer.html());
+    
+    $footer.html(
+      diffString(
+         originalPath,
+         d
+      )
+    );
+    
+  }
+  
+  /*
+   * removeHTMLTags() - based on ideas from 
+   * http://radio.javaranch.com/pascarello/2005/01/14/1105721395000.html
+   */
+  function removeHTMLTags (s) {
+   
+    var r = s.replace(delRe, "").replace(tagRe,"").replace(spaceRe, " ");
+    
+    return r;
+  }
 }
 
 /* 

@@ -1,6 +1,14 @@
 @import "reset.css";
 @import "../fonts/LoungeBait/stylesheet.css";
 
+body {
+  background: black;
+}
+
+#exampleBlurb {
+  margin-bottom: 0;
+}
+
 h1#outside {
 	position: absolute;
 	top: 100px;
@@ -43,33 +51,28 @@ h1#outside {
 	/* VML will not accept @font-face fonts (!!!) */
 	font-family: "Arial", sans-serif;
 	
+	/*
+	 * SVG
+	 */
 	
-	/* for text spacing in VML */
-	/* v-text-spacing:3;v-text-spacing-mode:tracking; */
+	/* centering text */
+  text-anchor: middle;
+  
+  
+	
+	/*
+	 * VML
+	 */
+	
+	/* centering text */
 	v-text-align: center;
 
+  /* like CSS3 letter-spacing */
+  v-text-spacing: 1.11; 
 	
-
-	text-anchor: middle;
-	
-	/* VML */
-	v-text-spacing:1.11; 
-	v-text-spacing-mode:tracking;
-	v-text-kern: True;
-}
-
-#leftGlassText tspan, #rightGlassText tspan, #bottomGlassText tspan {
-	/* This doesn't work in Firefox currently */
 	
 }
 
-
-/* This makes the text go through the middle of the path like VML does. */
-svg #headerText tspan {
-	dominant-baseline: middle;
-	alignment-baseline: middle;
-	/* baseline-shift: -30%; */ 
-}
 
 svg {
 	
@@ -84,12 +87,8 @@ svg {
  
   background: url('../images/transparent.gif') ;
   overflow: hidden;
+  margin: 0 auto;
   
-}
-
-
-#myShape:hover {
-
 }
 
 

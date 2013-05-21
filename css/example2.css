@@ -1,5 +1,13 @@
 @import "reset.css";
 
+body {
+  background: #666666;
+}
+
+#exampleBlurb {
+  margin-bottom: 0;
+}
+
 h1#outside {
 	position: absolute;
 	top: 100px;

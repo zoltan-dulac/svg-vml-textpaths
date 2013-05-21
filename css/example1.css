@@ -1,6 +1,13 @@
+/***********************************************
+ * Note that I don't use the SVG or VML node
+ * names in my CSS.  I try to style the common
+ * elements by using IDs on the similar nodes.
+ ***********************************************/
+
+
 /* 
  * This rule is for the root of the SVG and VML 
- * (i.e. the whole shape)
+ * (i.e. the whole shape).
  */
 #myShape {
   width: 407px;
@@ -8,6 +15,7 @@
   cursor: pointer;
  
   /* SVG */
+ 
   /*
    * Webkit is the only browser that makes the transform 
    * origin 0 0 (WHY?!?!). We also can't use 50% 50%, 
@@ -16,15 +24,26 @@
    */
   -webkit-transform-origin: 203.5px 203.5px;
   
-  -o-transform: rotate(0deg);
+  
+  /*
+   * Even though it doesn't really do anything, 
+   * we do -webkit-transform here. The translateZ(0)
+   * turns on GPU acceleration for animation on the
+   * node (if available).  I put the rotate(0deg)
+   * here as since we need to have the same tranform
+   * functions for all the animation states, otherwise
+   * the transition will fail.
+   */ 
   -webkit-transform: translateZ(0) rotate(0deg);
-  transform: translateZ(0) rotate(0deg);
+          
   
-  /* We animate on hover for browsers that do CSS transitions */
-  -o-transition: -o-transform 1s ease-out;
+  /* 
+   * We animate on hover for browsers that do CSS transitions.
+   * The 
+   */
+       -o-transition: -o-transform 1s ease-out;
   -webkit-transition: -webkit-transform 1s ease-out;
-  transition: transform 1s ease-out;
-  
+          transition: transform 1s ease-out;
   
   /* 
    * VML: a rotation in VML is surprisingly simple, and
@@ -37,6 +56,7 @@
    * the mouseover events that do the animation in JavaScript
    */
   background: url('../images/transparent.gif');
+  
 }
 
 /* IE9 will put the curve underneath the cookie unless we
@@ -53,15 +73,13 @@ svg#myShape {
  */
 #myText {
 
-  font-size: 50px;
-  
+  font-size: 25px;
   
   /* SVG only.  For VML, the fill happens in the <v:shape> tag. */
   fill: black;
   
-  
   /* Note: VML will not accept @font-face fonts (!!!) */
-  font-family: "Georgia", "Times New Roman", sans-serif;
+  font-family: "Palatino Linotype", "Book Antiqua3", "Palatino", serif;
   font-style: italic;
 }
 
@@ -69,18 +87,24 @@ svg#myShape {
 
 
 /*
- * On hover, we want the shape to do an animation.
+ * On hover, we want the shape animate in a full circle.
+ * Note we don't bother with -ms-transform since this 
+ * is going to be handled by JavaScript, due to IE9's
+ * support of CSS transitions (IE10, which does support
+ * transitions, doesn't use the -ms vendor prefix with
+ * either transforms or transitions).
  */
 #myShape:hover {
-  -o-transform: rotate(360deg);
+       -o-transform: rotate(360deg);
   -webkit-transform: translateZ(0) rotate(360deg);
-  transform: translateZ(0) rotate(360deg);
+          transform: translateZ(0) rotate(360deg);
   
   /* 
-   * You would think this would work, but it doesn't
-   * (I leave it here for to call this fact out).
-   * Seems like we can't rotate in VML on hover, so we
-   * do this with JavaScript instead via the mouseover
+   * You would think this would work, but it doesn't,
+   * even without the transition. (I leave it here for 
+   * to call this fact out).   Seems like we can't 
+   * rotate in VML on hover, so we do this with 
+   * JavaScript instead via the mouseover
    * event.
    */
   rotation: 45;
@@ -90,5 +114,4 @@ svg#myShape {
   left: -4px;
   position: absolute;
   top: 0;
- 
 }

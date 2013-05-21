@@ -16,7 +16,7 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		
+		<link rel="stylesheet" href="http://www.useragentman.com/shared/css/useragentmanExample.css" />
 		<link rel="stylesheet" type="text/css" href="css/example3-animation.css" />
 		<script src="js/jquery-1.9.1.min.js"></script>
 		
@@ -30,13 +30,18 @@
 	</head>
 
 	<body>
-		
+		<div id="exampleBlurb">
+      <p>
+        This example is the same <a href="example3-svg-vml.html">as this one</a>, except it shows how
+        we can tween a textpath using JavaScript.  Reload the page to see the animation again.
+        
+        <a href="http://www.useragentman.com/blog/?p=6053">Back to User Agent Man article</a>
+      </p>
+    </div>
 		<div id="shapeContainer">
 			<!--[if IE 9 | !IE]><!-->
 			<svg id="myShape" xmlns="http://www.w3.org/2000/svg"
-			     xmlns:xlink="http://www.w3.org/1999/xlink"
-			    viewBox="0,0,597,960" 
-			     >
+			     xmlns:xlink="http://www.w3.org/1999/xlink">
 			  <defs>
 			  	
 				  <!-- 
@@ -87,11 +92,11 @@
 				  </path>
 			  </defs>
 			  <text id="headerText"  >
-	    		<textPath  xlink:href="#headerPath" startOffset="50%" > <tspan >A Perfect Martini!</tspan></textPath>
+	    		<textPath  xlink:href="#headerPath" startOffset="50%" > <tspan dy="0.3em">A Perfect Martini!</tspan></textPath>
 	      </text>
 	      
 	      <text id="leftGlassText" >
-	    		<textPath  xlink:href="#leftGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > <tspan >
+	    		<textPath  xlink:href="#leftGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > <tspan dy="0.3em">
 	    			A hint of dry vermouth, two shots of gin and stirred &mdash; never, ever shaken.
 	    		</tspan>
 	      </textPath>
@@ -99,7 +104,7 @@
 	          
 	          
 	      <text id="rightGlassText" >
-	    		<textPath  xlink:href="#rightGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > <tspan >
+	    		<textPath  xlink:href="#rightGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > <tspan dy="0.3em">
 	    			Garnished with a blue cheese olive, a pickled onion, or a twist of lemon.
 	    		</tspan>
 	      </textPath>
@@ -107,7 +112,7 @@
 	     
 	     <text id="bottomGlassText">
 	    		<textPath  xlink:href="#bottomGlassPath" style="filter:url(#drop-shadow)" startOffset="50%" > 
-	    			<tspan >A drink of refinement and class.</tspan>
+	    			<tspan dy="0.3em">A drink of refinement and class.</tspan>
 	    	  </textPath>
 	     </text>
 	      

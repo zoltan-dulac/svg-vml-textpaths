@@ -18,6 +18,7 @@
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 		
 		<link rel="stylesheet" type="text/css" href="css/reset.css" />
+		<link rel="stylesheet" href="http://www.useragentman.com/shared/css/useragentmanExample.css" />
 		<link rel="stylesheet" type="text/css" href="css/example1.css" />
 		<script src="js/jquery-1.9.1.min.js"></script>
 		  <!--[if lte IE 9 ]>
@@ -29,8 +30,16 @@
 	</head>
 
 	<body>
-	  
-	    <img id="cookie" src="images/cookie.png" /> 
+	  <div id="exampleBlurb">
+      <p>
+        This an example of cross-browser textpaths.  Modern browsers use SVG, while IE &lt;= 8 use VML.
+        CSS3 Transitions are used in all browsers except for IE &lt;= 9, which use jQuery.animate() instead.
+        
+        <a href="http://www.useragentman.com/blog/?p=6053">Back to User Agent Man article</a>
+      </p>
+    </div>
+    <div id="exampleContent">
+	    <img id="cookie" src="images/cookie.jpg" /> 
 		
 			<!--[if IE 9 | !IE]><!-->
 			<svg id="myShape" xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +67,7 @@
 			  </defs>
 			  <text id="myText">
 	    		<textPath  xlink:href="#path1">
-	    			<tspan dy="0.3em">Creators of Concepts</tspan>
+	    			<tspan dy="0.3em">C is for Cookie, That's Good Enough For Me!</tspan>
 	    		</textPath>
 	      </text>
 	      
@@ -80,7 +89,7 @@
 				             248,343 227,347 202,347 
 				             190,346 174,343 163,339">
 							<v:path textpathok="t"></v:path>
-							<v:textpath id="myText" on ="t" string="Creators of Concepts"></v:textpath>
+							<v:textpath id="myText" on ="t" string="C is for Cookie, That's Good Enough For Me!"></v:textpath>
 						
 							
 						</v:shape>
@@ -88,6 +97,6 @@
 				
 			<![endif]-->
 		
-		
+		</div>
 	</body>
 </html>

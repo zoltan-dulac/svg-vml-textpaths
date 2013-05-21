@@ -16,7 +16,7 @@
 		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		
+		<link rel="stylesheet" href="http://www.useragentman.com/shared/css/useragentmanExample.css" />
 		<link rel="stylesheet" type="text/css" href="css/example2.css" />
 		<script src="js/jquery-1.9.1.min.js"></script>
 		<script src="js/example2-animation.js"></script>
@@ -29,7 +29,16 @@
 	</head>
 
 	<body>
-		
+		<div id="exampleBlurb">
+      <p> 
+        This an example of animating text along a cross-browser textpaths.  Modern browsers use SVG, while IE &lt;= 8 use VML.
+        jQuery.animate() is used to change the value of an SVG textpath node's startOffset attribute, as well as adding spaces at
+        the beginning of a VML textpath node's string attribute.
+        
+        <a href="http://www.useragentman.com/blog/?p=6053">Back to User Agent Man article</a>
+      </p>
+    </div>
+    
 		<div id="shapeContainer">
 			<!--[if IE 9 | !IE]><!-->
 			<svg id="myShape" xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +57,7 @@
 			  </defs>
 			  <text id="myText">
 	    		<textpath  class="textpath" xlink:href="#path1" startOffset="0%">
-	    		  <tspan dy="0.3em" xml:space="preserve">Type Doesn't Have To Be Flat!</tspan>
+	    		  <tspan dy="0.3em" >Type Doesn't Have To Be Flat!</tspan>
 	    		</textpath>
 	          </text>
 	      
@@ -76,9 +85,10 @@
 					</v:group>
 				
 			<![endif]-->
-		</div>
-		<img id="rollerCoasterImage" src="images/roller-coaster.jpg" />
 		
-		<div id="hoverControl">Mouse over or touch this block to see this path animate</div>
+  		<img id="rollerCoasterImage" src="images/roller-coaster.jpg" />
+  		
+  		<div id="hoverControl">Mouse over or touch this block to see this path animate</div>
+		</div>
 	</body>
 </html>

@@ -17,8 +17,16 @@ var textpathAnimation = new function () {
 		 */
 		$myShape = $('#myShape');
 		$myText = $('#myText');
-		$textpath = $('svg textPath');
+		$textpath = $('textPath');   // note Chrome doesn't like 'textpath' with a lower case 'p'.
 		$hoverControl = $('#hoverControl');
+		
+		/*
+		 * Since we want $textpath to be set to the SVG node, not the VML node,
+		 * we check the parentNode to make sure.
+		 */
+		if ($textpath[0].parentNode.nodeName != 'text') {
+		  $textpath = [];
+		}
 		
 		/*
 		 * To do the animation in IE <= 8, we need to grab
@@ -47,6 +55,7 @@ var textpathAnimation = new function () {
 		 * We are animting using a dummy CSS property,
 		 * appropriately called 'dummy'. :-)
 		 */
+		
 		$myShape.stop().animate({
 			dummy: 100
 		}, {
