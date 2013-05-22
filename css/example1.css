@@ -1,4 +1,4 @@
-/***********************************************
+/**********************************************
  * Note that I don't use the SVG or VML node
  * names in my CSS.  I try to style the common
  * elements by using IDs on the similar nodes.
@@ -13,7 +13,7 @@
   width: 407px;
   height: 407px;
   cursor: pointer;
- 
+
   /* SVG */
  
   /*
@@ -114,4 +114,8 @@ svg#myShape {
   left: -4px;
   position: absolute;
   top: 0;
+}
+
+#exampleContent {
+  height: 600px;
 }

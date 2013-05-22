@@ -229,11 +229,13 @@ var html5Forms = new function () {
 					setErrorMessageEvents(node);
 					setCustomClassesEvents(node);
 					setNodeClasses(node, true);
+					
+					
+          if (i==0 && node.type=="submit") {
+            EventHelpers.addEvent(node, 'click', submitClickEvent);
+          }
 				}
 				
-				if (i==0 && node.type=="submit") {
-					EventHelpers.addEvent(node, 'click', submitClickEvent);
-				}
 			}
 			
 			var forms = document.getElementsByTagName('form');

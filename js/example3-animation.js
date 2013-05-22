@@ -23,10 +23,23 @@ var myAnimation = new function () {
       $(el).attr('data-begin', el.d);
     });
     
+    /*
+     * We get all the SVG textpath elements and find
+     * out what paths they link to by looking at their 
+     * xlink:href attribute.  We then find that
+     * path and set it's data() to the textpath
+     * element.
+     */
+    $('.textpath').each(function(i, el) {
+      var href = el.getAttribute('xlink:href');
+      $(href).data('textpath', el)
+    });
+    
     
     
     /*
-     * Make sure we get the right attribute to change in the paths depending
+     * Make sure we get the right attribute to change
+     * in the paths depending
      * on if the browser is an SVG or VML one.
      */
     if ($paths[0].getAttribute('d')) {
@@ -51,8 +64,13 @@ var myAnimation = new function () {
           
           // VML's document object model for paths is different than SVG's.
           var tween = tweenPath(now, $(el));
+          $('#debug')[0].innerHTML += '<p>' +  el.getAttribute('xlink:href')
           if (pathAttr == 'd') {
             el.setAttribute(pathAttr, tween);
+            
+            // updating a path does not trigger a redraw in older WebKit browsers
+            // so we force the issue that repeatedly sets the textpath's xlink:href attribute.
+            $(el).data('textpath').setAttribute('xlink:href', $(el).data('textpath').getAttribute('xlink:href'));
           } else {
             el.path.v = tween;
           }
@@ -207,6 +225,7 @@ var myAnimation = new function () {
   function tweenLinear(t, start, end){
     return Math.round(t * end + (1 - t) * start);
   }
+  
 }
 
 $(window).load(myAnimation.init)
