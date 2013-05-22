@@ -67,7 +67,7 @@ var myAnimation = new function () {
           
           // VML's document object model for paths is different than SVG's.
           var tween = tweenPath(now, $(el));
-          $('#debug')[0].innerHTML += '<p>' +  el.getAttribute('xlink:href')
+          
           if (pathAttr == 'd') {
             el.setAttribute(pathAttr, tween);
             
