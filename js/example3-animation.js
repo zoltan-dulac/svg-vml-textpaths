@@ -29,6 +29,9 @@ var myAnimation = new function () {
      * xlink:href attribute.  We then find that
      * path and set it's data() to the textpath
      * element.
+     * 
+     * Note that we don't use $('<textpath>'), since
+     * jQuery can't query on SVG node names.  :-/
      */
     $('.textpath').each(function(i, el) {
       var href = el.getAttribute('xlink:href');
